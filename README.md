@@ -1,75 +1,116 @@
 # Frontend Technical Test
 
-Technical test conducted for candidates applying for the Frontend Developer position.
+This technical test is designed for candidates applying for the Frontend Developer position. The test evaluates your ability to implement a responsive product filtering interface using modern web technologies.
 
-### Objective
+## Objective
 
-To create the layout (HTML and TailwindCSS) and implement the filter functionality in JavaScript for the following prototype.
+Create a responsive product filtering interface by implementing:
 
-[View Prototype](https://www.figma.com/proto/BrGlZUi7JuPD4QeQPTpEk1/Frontend-Test?node-id=73-303&node-type=frame&t=VkF95nAL8XPPOSHB-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=73%3A303&show-proto-sidebar=1 "Prototype")
+1. The layout using HTML and TailwindCSS
+2. Filter functionality using JavaScript
+based on the provided prototype design.
 
-[View Design File](https://www.figma.com/design/BrGlZUi7JuPD4QeQPTpEk1/Frontend-Test?m=auto&t=rLB5lIKk9OtSA0Uf-1 "Design File")
+[View Interactive Prototype](https://www.figma.com/proto/BrGlZUi7JuPD4QeQPTpEk1/Frontend-Test?node-id=73-303&node-type=frame&t=VkF95nAL8XPPOSHB-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=73%3A303&show-proto-sidebar=1 "Prototype")
 
-### Filter Functionality
+[View Design Specifications](https://www.figma.com/design/BrGlZUi7JuPD4QeQPTpEk1/Frontend-Test?m=auto&t=rLB5lIKk9OtSA0Uf-1 "Design File")
 
-Please consider the following requirements to implement the filter functionality:
-* Clicking the filter button opens a modal with the filter options.
-* Multiple options can be selected.
-* When an option is selected, the clear button is activated, and the number of selected options is displayed on the filter button.
-* Clicking the filter button closes the modal and displays the products that meet the selected filters.
-* Clicking the clear button removes the selected options from the filter form and reloads the list with all options.
-* There are three filter options: `Rubia (id=1)`, `Morena (id=2)`, and `Roja (id=3)`.
+### Filter Implementation Requirements
 
-### Technical Requirements
+The filter functionality should:
 
-* Use TailwindCSS to create the styles, compile them locally, and add them to the project. (Only the structure and configuration of TailwindCSS will be reviewed).
-* JavaScript must be written in ES6, and the use of third-party libraries is restricted except for [Alpine.js](https://alpinejs.dev/) and [Htmx.js](https://htmx.org/).
-* To build the product list, use the `products.json` file located in this repository.
+1. Display a modal with filter options when clicking the filter button
+2. Allow multiple option selection
+3. Show selected filter count on the button and activate clear functionality
+4. Filter products based on selected options when closing modal
+5. Reset all filters and reload full product list when clicking clear
+6. Include three filter categories:
+   - Rubia (id=1)
+   - Morena (id=2)
+   - Roja (id=3)
 
-### Responsive Design
+### Technical Specifications
 
-The given prototype is designed for mobile; although there is no desktop version, it must be responsive. For example, on desktop screens, the product grid can change to 4 columns.
+1. **Styling**: Implement using TailwindCSS
+   - Use current setup for local compilation
+   - Include proper configuration
+   - Only the TailwindCSS structure and setup will be evaluated
 
-### Resources
+2. **JavaScript Requirements**:
+   - Write code in ES6
+   - Allowed libraries:
+     - Alpine.js for reactive UI
+     - HTMX.js for dynamic updates
+   - Use products.json for data source
 
-* In the `app/static/img` folder, you will find the product images.
-* In the `templates/svg` folder, you will find the icons.
+### Responsive Design Requirements
 
-### Bonus
+While the prototype focuses on mobile layout, the implementation must be responsive:
 
-Completing one or all of the following points will earn extra credit when grading the test results:
-* If the page is reloaded with filters applied, those filters should be retained.
+- Mobile: Follow prototype design
+- Desktop: Optimize layout (e.g., 4-column product grid)
 
-## Running
+### Provided Resources
 
-### Python Packages
-We use [rye](https://rye.astral.sh/) for Python packages. Follow the installation instructions [here](https://rye.astral.sh/guide/installation/#installing-rye).
+- Product images: Located in `app/static/img`
+- UI icons: Available in `templates/svg`
 
-After installation, run the following commands:
+### Bonus Feature
 
-```bash
-rye sync
-rye run python manage.py runserver
-```
+For additional credit, implement:
 
-### JavaScript Packages
-We use [npm](https://www.npmjs.com/) for JavaScript packages. Follow the installation instructions [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+- Filter persistence across page reloads
 
-After installation, run the following command:
+## Setup Instructions
 
-```bash
-npm install
-rye run python manage.py tailwind start
-```
+### Prerequisites
 
-## Running with Docker
+- [Rye](https://rye.astral.sh/) for Python package management
+- [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) for JavaScript dependencies
+
+## Installation Steps
+
+1. **Clone the repository**
+
+2. **Install Python dependencies**
+
+   ```bash
+   rye sync
+   ```
+
+3. **Install Node.js dependencies**
+
+   ```bash
+   npm install
+   ```
+
+4. **Start the development servers**
+
+   Open two terminal windows and run:
+
+   Terminal 1 - Django server:
+
+   ```bash
+   rye run python manage.py runserver
+   ```
+
+   Terminal 2 - Tailwind CSS compiler:
+
+   ```bash
+   rye run python manage.py tailwind start
+   ```
+
+5. **Access the development site**
+
+   Open your browser and navigate to: [http://localhost:8000](http://localhost:8000)
+
+## Docker Alternative
+
+If using Docker, simply run:
 
 ```bash
 docker compose build
 docker compose up
 ```
-
-You should be able to access to the homepage at <http://localhost:8000/>
 
 ## Tech Stack
 
