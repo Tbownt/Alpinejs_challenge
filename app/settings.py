@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'app.storages.CustomStaticFilesConfig',
     'tailwind',
     'django_browser_reload',
 ]
@@ -135,3 +135,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # django-tailwind
 TAILWIND_APP_NAME = 'app'
+
+STORAGES = {
+    'default': {
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+    },
+    'staticfiles': {
+        'BACKEND': 'app.storages.JSManifestStaticFilesStorage',
+    },
+}

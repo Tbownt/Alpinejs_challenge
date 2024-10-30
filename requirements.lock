@@ -15,7 +15,7 @@ asgiref==3.8.1
 django==5.1.2
     # via django-browser-reload
     # via django-tailwind
-django-browser-reload==1.16.0
+django-browser-reload==1.17.0
     # via django-tailwind
 django-tailwind==3.8.0
 sqlparse==0.5.1
