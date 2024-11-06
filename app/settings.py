@@ -74,6 +74,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
+NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases

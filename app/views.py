@@ -16,7 +16,11 @@ class ProductListView(generic.TemplateView):
                 raise Http404('Should be an HTMX request')
 
             try:
-                products = [product for product in products if product['filterId'] == int(product_filter)]
+                # Convertimos el filtro en una lista de números
+                filter_ids = [int(f) for f in product_filter.split(',')]
+
+                # Filtramos los productos que tengan un filterId que coincida con alguno de los valores
+                products = [product for product in products if product['filterId'] in filter_ids]
 
                 return render(
                     request,

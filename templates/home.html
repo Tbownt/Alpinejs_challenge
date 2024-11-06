@@ -1,11 +1,20 @@
 {% extends 'layout/base.html' %}
 {% load static humanize %}
-
 {% block body %}
-<h1 class="text-2xl font-bold">Cervezas</h1>
-{% include 'list.html' %}
-{% endblock %}
-
+{% include 'navbar.html' %}
+    <h1 class="text-3xl font-bold text-center my-10">Cervezas</h1>
+    {% include 'list.html' %}
+    <div class="flex self-center items-center justify-between border rounded my-10 w-[95%] mx-auto">
+        <div class="ml-5">
+            <small class="text-sm font-normal">Sigue mercando</small>
+            <p class="text-xl font-bold">Vinos</p>
+        </div>
+        <img src="{% static 'arrow-right.svg' %}" alt="arrow right" class="mr-5"/>
+    </div>
+{% include 'modal.html' %}
+{% include 'contact.html' %}
+{% include 'footer.html' %}
+{% endblock %} 
 {% block js %}
-    <script type="module" src="{% static 'js/general.js' %}"></script>
+<script type="module" src="{% static 'js/example.js' %}"></script>
 {% endblock %}

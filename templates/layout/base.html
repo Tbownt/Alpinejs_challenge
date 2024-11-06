@@ -3,21 +3,59 @@
 
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta property="og:url" content="https://{{ request.get_host }}{{ request.get_full_path }}">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="apple-mobile-web-app-title" content="axiacore">
-        <link rel="apple-touch-icon-precomposed" href="{% static 'img/apple-touch-icon.png' %}">
-        <link rel="icon" href="{% static 'img/favicon.png' %}">
+        <meta charset="utf-8" />
+        <meta
+            property="og:url"
+            content="https://{{ request.get_host }}{{ request.get_full_path }}"
+        />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="apple-mobile-web-app-title" content="axiacore" />
+        <link
+            rel="apple-touch-icon-precomposed"
+            href="{% static 'img/apple-touch-icon.png' %}"
+        />
+        <link rel="icon" href="{% static 'img/favicon.png' %}" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
         {% block css %}
-            {% tailwind_css %}
+        {% tailwind_css %}
         {% endblock %}
-        {% block extra_head %}{% endblock %}
+        {% block extra_head%}
+        {% endblock %}
+        
+            <!-- HTMX -->
+        <script
+            src="https://unpkg.com/htmx.org@2.0.3"
+            integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq"
+            crossorigin="anonymous"
+        ></script>
+        <!-- ALPINE -->
+        <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.14.3/dist/cdn.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
+        <!-- GENERAL JS -->
+        <script type="module" src="{% static 'js/general.js' %}"></script>
     </head>
-    <body class="{% block body_classes %}{% endblock %}">
-        {% block body %}
-        {% endblock body %}
-        {% block js %}
-        {% endblock %}
+    <body x-data="{openModal:false, filter:[]}" class="{% block body_classes %}{% endblock %}">
+        <!-- Navbar Block -->
+        {% block navbar %}{% endblock %}
+
+        <!-- Main Content Block -->
+        {% block body %}{% endblock body %}
+
+         <!-- Navbar Block -->
+         {% block modal %}{% endblock %}
+
+        <!-- Contact Block -->
+        {% block contact %}{% endblock contact %}
+
+        <!-- Footer Block -->
+        {% block footer %}{% endblock footer %} 
+        
+        {% block js %}{% endblock %}
     </body>
 </html>

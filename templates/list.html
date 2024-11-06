@@ -1,10 +1,31 @@
 {% load static %}
 
-{% for product in products %}
-    <div class="flex flex-row">
-        {{ product.name }}<br>
-        {{ product.description }}<br>
-        {{ product.price }}<br>
+<div id="product-list" class="grid grid-cols-2 md:grid-cols-4 place-items-center gap-4 md:gap-8">
+    {% for product in products %}
+    <div
+        class="flex flex-col items-center max-w-[90%] max-h-76 md:max-w-[85%] bg-white rounded-md shadow-md border product"
+    >
         <img src="{% static 'img/'|add:product.img %}" alt="{{ product.name }}" />
+        <div class="flex flex-col items-center p-4">
+            <p class="text-base font-bold">{{ product.name }}</p>
+            <p class="text-gray-600">{{ product.description }}</p>
+            <p class="price font-bold self-start">${{ product.price }}</p>
+        </div>
+        <button class="bg-[#E6E6E6] w-full font-semibold text-base">AGREGAR</button>
     </div>
-{% endfor %}
+    {% endfor %}
+</div>
+
+
+<!-- JavaScript para aplicar el formato -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll(".price").forEach(function(el) {
+        // Obtener el precio eliminando el símbolo $
+        const price = parseInt(el.textContent.replace("$", ""), 10);
+        // Formatear el número con comas y actualizar el contenido
+        el.textContent = `$${price.toLocaleString("es-ES")}`;
+      });
+    });
+  </script>
+
